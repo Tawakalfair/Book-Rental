@@ -1,9 +1,9 @@
 package book
 
 import (
-	"example-app/database"
 	"log"
 
+	"github.com/Tawakalfair/Book-Rental/database"
 	"github.com/gofiber/fiber/v2"
 )
 

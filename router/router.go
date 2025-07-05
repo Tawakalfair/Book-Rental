@@ -1,8 +1,7 @@
 package router
 
 import (
-	"example-app/book"
-
+	"github.com/Tawakalfair/Book-Rental/book"
 	"github.com/gofiber/fiber/v2"
 )
 

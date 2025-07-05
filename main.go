@@ -1,11 +1,11 @@
 package main
 
 import (
-	"example-app/book"
-	"example-app/database"
-	"example-app/router"
 	"log"
 
+	"github.com/Tawakalfair/Book-Rental/book"
+	"github.com/Tawakalfair/Book-Rental/database"
+	"github.com/Tawakalfair/Book-Rental/router"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/template/html/v2"
 )
