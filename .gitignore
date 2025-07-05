@@ -8,5 +8,19 @@
 # Test binary, built with `go test -c`
 *.test
 
+# Node / Frontend dependencies
+node_modules/
+
+# Generated Tailwind CSS file
+public/output.css
+
+# Log files
+*.log
+npm-debug.log*
+
+# IDE / Editor folders
+.vscode/
+.idea/
+
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out

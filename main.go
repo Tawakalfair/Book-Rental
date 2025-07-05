@@ -25,6 +25,9 @@ func main() {
 		Views: engine,
 	})
 
+	// Serve static files from the "public" directory
+	app.Static("/public", "./public")
+
 	// Setup the routes
 	router.SetupRoutes(app)
 

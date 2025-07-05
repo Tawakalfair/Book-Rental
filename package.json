@@ -1,0 +1,27 @@
+{
+  "devDependencies": {
+    "tailwindcss": "^4.1.11"
+  },
+  "name": "example-app",
+  "version": "1.0.0",
+  "main": "main.go",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css:watch": "npx @tailwindcss/cli -i ./public/input.css -o ./public/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tawakalfair/Book-Rental.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tawakalfair/Book-Rental/issues"
+  },
+  "homepage": "https://github.com/Tawakalfair/Book-Rental#readme",
+  "description": "",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.11"
+  }
+}
