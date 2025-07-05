@@ -7,9 +7,12 @@ import (
 )
 
 func SetupRoutes(app *fiber.App) {
+
+	// Route for Web interface
+	app.Get("/", book.RenderBooksPage)
+
 	// grouping routes under /api
 	api := app.Group("/api")
-
 	// Book Routes
 	api.Get("/books", book.GetBooks)
 	api.Get("/books/:id", book.GetBook)

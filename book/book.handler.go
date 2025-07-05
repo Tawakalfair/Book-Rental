@@ -71,3 +71,14 @@ func DeleteBook(c *fiber.Ctx) error {
 	return c.SendStatus(fiber.StatusNoContent)
 
 }
+
+func RenderBooksPage(c *fiber.Ctx) error {
+	var books []Book
+	if err := database.DB.Find(&books).Error; err != nil {
+		return c.Status(500).SendString(err.Error())
+	}
+
+	return c.Render("index", fiber.Map{
+		"Books": books,
+	})
+}
