@@ -1,0 +1,26 @@
+# .air.toml
+# Corrected for Windows
+
+# Working directory
+root = "."
+tmp_dir = "tmp"
+
+[build]
+# Command to build your app with the .exe extension
+cmd = "go build -o ./tmp/main.exe ." # <-- Changed
+
+# The binary to run, now with .exe
+bin = "tmp/main.exe" # <-- Changed
+
+# Log file for the build process
+log = "air_build.log"
+# Watch these file extensions
+include_ext = ["go", "tpl", "tmpl", "html"]
+# Ignore these directories
+exclude_dir = ["assets", "tmp", "vendor"]
+# Delay before restarting
+delay = 1000 # In milliseconds
+
+[log]
+# Show log time
+time = true

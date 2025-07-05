@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding-top: 50px; }
+        .error-container { max-width: 600px; margin: auto; }
+        .status-code { font-size: 5rem; font-weight: bold; color: #e74c3c; }
+        .message { font-size: 1.2rem; color: #555; }
+        a { color: #3498db; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="status-code">{{ .StatusCode }}</div>
+        <h2>Oops! Something went wrong.</h2>
+        <p class="message">{{ .Message }}</p>
+        <p><a href="/">Go back to the homepage</a></p>
+    </div>
+</body>
+</html>

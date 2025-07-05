@@ -2,6 +2,7 @@ package book
 
 import (
 	"example-app/database"
+	"log"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -75,7 +76,14 @@ func DeleteBook(c *fiber.Ctx) error {
 func RenderBooksPage(c *fiber.Ctx) error {
 	var books []Book
 	if err := database.DB.Find(&books).Error; err != nil {
-		return c.Status(500).SendString(err.Error())
+		// Log the actual error for debugging purposes
+		log.Printf("Database error: %v", err)
+
+		// Render the error page for the user
+		return c.Status(fiber.StatusInternalServerError).Render("error", fiber.Map{
+			"StatusCode": fiber.StatusInternalServerError,
+			"Message":    "We couldn't retrieve the book list at this time. Please try again later.",
+		})
 	}
 
 	return c.Render("index", fiber.Map{
