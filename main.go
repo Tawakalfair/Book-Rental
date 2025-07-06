@@ -8,9 +8,17 @@ import (
 	"github.com/Tawakalfair/Book-Rental/router"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/template/html/v2"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+
+	// Load environment variables from .env file
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
 	// Initialize the template engine
 	engine := html.New("./views", ".html")
 
@@ -18,7 +26,7 @@ func main() {
 	database.ConnectDB()
 	log.Println("Running Migrations")
 	// Run the migration here
-	database.DB.AutoMigrate(&book.Book{})
+	database.DB.AutoMigrate(&book.Book{}, &book.User{})
 
 	// Create a new Fiber app
 	app := fiber.New(fiber.Config{

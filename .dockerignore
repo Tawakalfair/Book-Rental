@@ -8,3 +8,4 @@ tmp
 *.log
 Dockerfile
 .air.toml
+.env
