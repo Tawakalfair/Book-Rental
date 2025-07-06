@@ -2,7 +2,7 @@
 
 # --- Stage 1: The Builder ---
 # Use an official Go image to build our app
-FROM golang:1.22-alpine AS builder
+FROM golang:1.24-alpine AS builder
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -26,6 +26,10 @@ FROM alpine:latest
 
 # Set the working directory
 WORKDIR /root/
+
+# Copy the assets your application needs
+COPY views ./views
+COPY public ./public
 
 # Copy only the compiled binary from the 'builder' stage
 COPY --from=builder /main .
