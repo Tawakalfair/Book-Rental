@@ -7,7 +7,7 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 )
 
-func Protected(c *fiber.Ctx) error {
+func ProtectedApi(c *fiber.Ctx) error {
 	// For simplicity, we'll get the token from a header.
 	// In a real app, might want to consider a safer way to store jwt token
 	authHeader := c.Get("Authorization")
@@ -38,6 +38,24 @@ func Protected(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
 			"message": "Invalid or expired JWT",
 		})
+	}
+
+	return c.Next()
+}
+
+func Protected(c *fiber.Ctx) error {
+	tokenString := c.Cookies("jwt")
+
+	if tokenString == "" {
+		return c.Redirect("/login")
+	}
+
+	_, err := jwt.ParseWithClaims(tokenString, &jwt.RegisteredClaims{}, func(token *jwt.Token) (interface{}, error) {
+		return []byte(os.Getenv("SECRET_KEY")), nil
+	})
+
+	if err != nil {
+		return c.Redirect("/login")
 	}
 
 	return c.Next()

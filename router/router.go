@@ -9,6 +9,15 @@ import (
 
 func SetupRoutes(app *fiber.App) {
 
+	// Public routes for authentication pages and actions
+	app.Get("/register", auth.ShowRegisterPage)
+	app.Post("/register", auth.RegisterUser)
+	app.Get("/login", auth.ShowLoginPage)
+	app.Post("/login", auth.LoginUser)
+	app.Post("/logout", auth.LogoutUser)
+
+	// Protected routes
+	app.Get("/dashboard", middleware.Protected, auth.ShowDashboard)
 	// Route for Web interface
 	app.Get("/", book.RenderBooksPage)
 

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="/public/output.css" rel="stylesheet">
+    <title>Dashboard</title>
+</head>
+<body class="bg-slate-100 text-slate-800 p-8">
+    <div class="max-w-4xl mx-auto">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-3xl font-bold">Welcome, {{ .username }}!</h1>
+            <form action="/logout" method="POST">
+                <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Logout</button>
+            </form>
+        </div>
+        <p>This is your protected dashboard.</p>
+    </div>
+</body>
+</html>
